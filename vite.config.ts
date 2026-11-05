@@ -12,4 +12,11 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    // Pre-bundle client deps up front so a late discovery doesn't re-optimize
+    // and load two React copies (stale "useState of null" in Toaster).
+    optimizeDeps: {
+      include: ["react", "react-dom", "react-dom/client", "sonner", "@tanstack/react-virtual", "lucide-react"],
+    },
+  },
 });
