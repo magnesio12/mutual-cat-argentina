@@ -28,3 +28,11 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- All money math lives in `src/engine` as pure TS on integer cents with explicit half-up rounding (rates in bps); UI and data layers never compute amounts themselves, so the engine stays testable and exact.
+- All app data lives in IndexedDB: seed snapshot + immutable event log replayed by the deterministic `src/data/reducer.ts`; every data change must go through `store.dispatch` so undo, "estado al…" and tab sync keep working.
+- Heavy network-wide recalcs and seed generation run in Web Workers (`src/data/*.worker.ts`).
+- The app renders client-only (`ClientOnly` in `__root.tsx`) because all state comes from IndexedDB.
+- tsconfig drops `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes` and `noPropertyAccessFromIndexSignature`: record-keyed entity maps make them pure noise.
+- `npm test` runs Vitest with an 80 % coverage threshold on `src/engine`; keep the mandatory cases green.

@@ -10,33 +10,206 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as AhorrosRouteImport } from './routes/ahorros'
+import { Route as CasosRouteImport } from './routes/casos'
+import { Route as CobranzaRouteImport } from './routes/cobranza'
+import { Route as ConflictosRouteImport } from './routes/conflictos'
+import { Route as HistorialRouteImport } from './routes/historial'
+import { Route as MoraRouteImport } from './routes/mora'
+import { Route as RefinanciacionRouteImport } from './routes/refinanciacion'
+import { Route as AsociadosIndexRouteImport } from './routes/asociados.index'
+import { Route as AsociadosIdRouteImport } from './routes/asociados.$id'
+import { Route as PrestamosIndexRouteImport } from './routes/prestamos.index'
+import { Route as PrestamosIdRouteImport } from './routes/prestamos.$id'
+import { Route as PrestamosNuevoRouteImport } from './routes/prestamos.nuevo'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AhorrosRoute = AhorrosRouteImport.update({
+  id: '/ahorros',
+  path: '/ahorros',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CasosRoute = CasosRouteImport.update({
+  id: '/casos',
+  path: '/casos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CobranzaRoute = CobranzaRouteImport.update({
+  id: '/cobranza',
+  path: '/cobranza',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConflictosRoute = ConflictosRouteImport.update({
+  id: '/conflictos',
+  path: '/conflictos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistorialRoute = HistorialRouteImport.update({
+  id: '/historial',
+  path: '/historial',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MoraRoute = MoraRouteImport.update({
+  id: '/mora',
+  path: '/mora',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RefinanciacionRoute = RefinanciacionRouteImport.update({
+  id: '/refinanciacion',
+  path: '/refinanciacion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AsociadosIndexRoute = AsociadosIndexRouteImport.update({
+  id: '/asociados/',
+  path: '/asociados/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AsociadosIdRoute = AsociadosIdRouteImport.update({
+  id: '/asociados/$id',
+  path: '/asociados/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrestamosIndexRoute = PrestamosIndexRouteImport.update({
+  id: '/prestamos/',
+  path: '/prestamos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrestamosIdRoute = PrestamosIdRouteImport.update({
+  id: '/prestamos/$id',
+  path: '/prestamos/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrestamosNuevoRoute = PrestamosNuevoRouteImport.update({
+  id: '/prestamos/nuevo',
+  path: '/prestamos/nuevo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/ahorros': typeof AhorrosRoute
+  '/casos': typeof CasosRoute
+  '/cobranza': typeof CobranzaRoute
+  '/conflictos': typeof ConflictosRoute
+  '/historial': typeof HistorialRoute
+  '/mora': typeof MoraRoute
+  '/refinanciacion': typeof RefinanciacionRoute
+  '/asociados/$id': typeof AsociadosIdRoute
+  '/prestamos/$id': typeof PrestamosIdRoute
+  '/prestamos/nuevo': typeof PrestamosNuevoRoute
+  '/asociados/': typeof AsociadosIndexRoute
+  '/prestamos/': typeof PrestamosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/ahorros': typeof AhorrosRoute
+  '/casos': typeof CasosRoute
+  '/cobranza': typeof CobranzaRoute
+  '/conflictos': typeof ConflictosRoute
+  '/historial': typeof HistorialRoute
+  '/mora': typeof MoraRoute
+  '/refinanciacion': typeof RefinanciacionRoute
+  '/asociados/$id': typeof AsociadosIdRoute
+  '/prestamos/$id': typeof PrestamosIdRoute
+  '/prestamos/nuevo': typeof PrestamosNuevoRoute
+  '/asociados': typeof AsociadosIndexRoute
+  '/prestamos': typeof PrestamosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/ahorros': typeof AhorrosRoute
+  '/casos': typeof CasosRoute
+  '/cobranza': typeof CobranzaRoute
+  '/conflictos': typeof ConflictosRoute
+  '/historial': typeof HistorialRoute
+  '/mora': typeof MoraRoute
+  '/refinanciacion': typeof RefinanciacionRoute
+  '/asociados/$id': typeof AsociadosIdRoute
+  '/prestamos/$id': typeof PrestamosIdRoute
+  '/prestamos/nuevo': typeof PrestamosNuevoRoute
+  '/asociados/': typeof AsociadosIndexRoute
+  '/prestamos/': typeof PrestamosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/ahorros'
+    | '/casos'
+    | '/cobranza'
+    | '/conflictos'
+    | '/historial'
+    | '/mora'
+    | '/refinanciacion'
+    | '/asociados/$id'
+    | '/prestamos/$id'
+    | '/prestamos/nuevo'
+    | '/asociados/'
+    | '/prestamos/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/admin'
+    | '/ahorros'
+    | '/casos'
+    | '/cobranza'
+    | '/conflictos'
+    | '/historial'
+    | '/mora'
+    | '/refinanciacion'
+    | '/asociados/$id'
+    | '/prestamos/$id'
+    | '/prestamos/nuevo'
+    | '/asociados'
+    | '/prestamos'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/ahorros'
+    | '/casos'
+    | '/cobranza'
+    | '/conflictos'
+    | '/historial'
+    | '/mora'
+    | '/refinanciacion'
+    | '/asociados/$id'
+    | '/prestamos/$id'
+    | '/prestamos/nuevo'
+    | '/asociados/'
+    | '/prestamos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
+  AhorrosRoute: typeof AhorrosRoute
+  CasosRoute: typeof CasosRoute
+  CobranzaRoute: typeof CobranzaRoute
+  ConflictosRoute: typeof ConflictosRoute
+  HistorialRoute: typeof HistorialRoute
+  MoraRoute: typeof MoraRoute
+  RefinanciacionRoute: typeof RefinanciacionRoute
+  AsociadosIdRoute: typeof AsociadosIdRoute
+  PrestamosIdRoute: typeof PrestamosIdRoute
+  PrestamosNuevoRoute: typeof PrestamosNuevoRoute
+  AsociadosIndexRoute: typeof AsociadosIndexRoute
+  PrestamosIndexRoute: typeof PrestamosIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +221,115 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ahorros': {
+      id: '/ahorros'
+      path: '/ahorros'
+      fullPath: '/ahorros'
+      preLoaderRoute: typeof AhorrosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/casos': {
+      id: '/casos'
+      path: '/casos'
+      fullPath: '/casos'
+      preLoaderRoute: typeof CasosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cobranza': {
+      id: '/cobranza'
+      path: '/cobranza'
+      fullPath: '/cobranza'
+      preLoaderRoute: typeof CobranzaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conflictos': {
+      id: '/conflictos'
+      path: '/conflictos'
+      fullPath: '/conflictos'
+      preLoaderRoute: typeof ConflictosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/historial': {
+      id: '/historial'
+      path: '/historial'
+      fullPath: '/historial'
+      preLoaderRoute: typeof HistorialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mora': {
+      id: '/mora'
+      path: '/mora'
+      fullPath: '/mora'
+      preLoaderRoute: typeof MoraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refinanciacion': {
+      id: '/refinanciacion'
+      path: '/refinanciacion'
+      fullPath: '/refinanciacion'
+      preLoaderRoute: typeof RefinanciacionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/asociados/': {
+      id: '/asociados/'
+      path: '/asociados'
+      fullPath: '/asociados/'
+      preLoaderRoute: typeof AsociadosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/asociados/$id': {
+      id: '/asociados/$id'
+      path: '/asociados/$id'
+      fullPath: '/asociados/$id'
+      preLoaderRoute: typeof AsociadosIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prestamos/': {
+      id: '/prestamos/'
+      path: '/prestamos'
+      fullPath: '/prestamos/'
+      preLoaderRoute: typeof PrestamosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prestamos/$id': {
+      id: '/prestamos/$id'
+      path: '/prestamos/$id'
+      fullPath: '/prestamos/$id'
+      preLoaderRoute: typeof PrestamosIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prestamos/nuevo': {
+      id: '/prestamos/nuevo'
+      path: '/prestamos/nuevo'
+      fullPath: '/prestamos/nuevo'
+      preLoaderRoute: typeof PrestamosNuevoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
+  AhorrosRoute: AhorrosRoute,
+  CasosRoute: CasosRoute,
+  CobranzaRoute: CobranzaRoute,
+  ConflictosRoute: ConflictosRoute,
+  HistorialRoute: HistorialRoute,
+  MoraRoute: MoraRoute,
+  RefinanciacionRoute: RefinanciacionRoute,
+  AsociadosIdRoute: AsociadosIdRoute,
+  PrestamosIdRoute: PrestamosIdRoute,
+  PrestamosNuevoRoute: PrestamosNuevoRoute,
+  AsociadosIndexRoute: AsociadosIndexRoute,
+  PrestamosIndexRoute: PrestamosIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
