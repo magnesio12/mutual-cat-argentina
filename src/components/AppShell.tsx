@@ -16,6 +16,7 @@ const NAV = [
   { to: "/mora", label: "Mora y previsiones" },
   { to: "/refinanciacion", label: "Refinanciación" },
   { to: "/historial", label: "Historial" },
+  { to: "/enviados", label: "Enviados (simulado)" },
   { to: "/conflictos", label: "Conflictos" },
   { to: "/casos", label: "Casos de prueba" },
   { to: "/admin", label: "Administración" },
@@ -154,7 +155,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         )}
 
         <main className="mx-auto max-w-6xl px-3 py-4 sm:px-5 sm:py-6">{children}</main>
-        <footer className="px-5 pb-6 text-xs text-muted-foreground">Mutual CAT · Datos de ejemplo guardados solo en este equipo · Desarrollo KODARVIA</footer>
+        <footer className="px-5 pb-6 text-xs text-muted-foreground">Mutual CAT · Datos de ejemplo guardados solo en este equipo</footer>
       </div>
     </div>
   );

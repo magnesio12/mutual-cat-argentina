@@ -15,6 +15,7 @@ import { Route as AhorrosRouteImport } from './routes/ahorros'
 import { Route as CasosRouteImport } from './routes/casos'
 import { Route as CobranzaRouteImport } from './routes/cobranza'
 import { Route as ConflictosRouteImport } from './routes/conflictos'
+import { Route as EnviadosRouteImport } from './routes/enviados'
 import { Route as HistorialRouteImport } from './routes/historial'
 import { Route as MoraRouteImport } from './routes/mora'
 import { Route as RefinanciacionRouteImport } from './routes/refinanciacion'
@@ -52,6 +53,11 @@ const CobranzaRoute = CobranzaRouteImport.update({
 const ConflictosRoute = ConflictosRouteImport.update({
   id: '/conflictos',
   path: '/conflictos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnviadosRoute = EnviadosRouteImport.update({
+  id: '/enviados',
+  path: '/enviados',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HistorialRoute = HistorialRouteImport.update({
@@ -102,6 +108,7 @@ export interface FileRoutesByFullPath {
   '/casos': typeof CasosRoute
   '/cobranza': typeof CobranzaRoute
   '/conflictos': typeof ConflictosRoute
+  '/enviados': typeof EnviadosRoute
   '/historial': typeof HistorialRoute
   '/mora': typeof MoraRoute
   '/refinanciacion': typeof RefinanciacionRoute
@@ -118,6 +125,7 @@ export interface FileRoutesByTo {
   '/casos': typeof CasosRoute
   '/cobranza': typeof CobranzaRoute
   '/conflictos': typeof ConflictosRoute
+  '/enviados': typeof EnviadosRoute
   '/historial': typeof HistorialRoute
   '/mora': typeof MoraRoute
   '/refinanciacion': typeof RefinanciacionRoute
@@ -135,6 +143,7 @@ export interface FileRoutesById {
   '/casos': typeof CasosRoute
   '/cobranza': typeof CobranzaRoute
   '/conflictos': typeof ConflictosRoute
+  '/enviados': typeof EnviadosRoute
   '/historial': typeof HistorialRoute
   '/mora': typeof MoraRoute
   '/refinanciacion': typeof RefinanciacionRoute
@@ -153,6 +162,7 @@ export interface FileRouteTypes {
     | '/casos'
     | '/cobranza'
     | '/conflictos'
+    | '/enviados'
     | '/historial'
     | '/mora'
     | '/refinanciacion'
@@ -169,6 +179,7 @@ export interface FileRouteTypes {
     | '/casos'
     | '/cobranza'
     | '/conflictos'
+    | '/enviados'
     | '/historial'
     | '/mora'
     | '/refinanciacion'
@@ -185,6 +196,7 @@ export interface FileRouteTypes {
     | '/casos'
     | '/cobranza'
     | '/conflictos'
+    | '/enviados'
     | '/historial'
     | '/mora'
     | '/refinanciacion'
@@ -202,6 +214,7 @@ export interface RootRouteChildren {
   CasosRoute: typeof CasosRoute
   CobranzaRoute: typeof CobranzaRoute
   ConflictosRoute: typeof ConflictosRoute
+  EnviadosRoute: typeof EnviadosRoute
   HistorialRoute: typeof HistorialRoute
   MoraRoute: typeof MoraRoute
   RefinanciacionRoute: typeof RefinanciacionRoute
@@ -254,6 +267,13 @@ declare module '@tanstack/react-router' {
       path: '/conflictos'
       fullPath: '/conflictos'
       preLoaderRoute: typeof ConflictosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/enviados': {
+      id: '/enviados'
+      path: '/enviados'
+      fullPath: '/enviados'
+      preLoaderRoute: typeof EnviadosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/historial': {
@@ -322,6 +342,7 @@ const rootRouteChildren: RootRouteChildren = {
   CasosRoute: CasosRoute,
   CobranzaRoute: CobranzaRoute,
   ConflictosRoute: ConflictosRoute,
+  EnviadosRoute: EnviadosRoute,
   HistorialRoute: HistorialRoute,
   MoraRoute: MoraRoute,
   RefinanciacionRoute: RefinanciacionRoute,

@@ -1,6 +1,6 @@
 # Sistema de ayuda económica de Mutual CAT
 
-App web sin servidor para una mutual del sur santafesino. Responde al instante si hay capacidad prestable, cuánto le queda a cada asociado hasta el tope, cobra cuotas con imputación exacta y muestra mora y previsiones de toda la red. Desarrollo: **KODARVIA**.
+App web sin servidor para una mutual del sur santafesino. Responde al instante si hay capacidad prestable, cuánto le queda a cada asociado hasta el tope, cobra cuotas con imputación exacta y muestra mora y previsiones de toda la red.
 
 > Todos los nombres, cifras y registros son **inventados**. Ningún dato es real.
 
@@ -29,13 +29,14 @@ Corre Vitest con cobertura sobre el motor (`src/engine`). El umbral es 80 % en l
 | Casos de prueba | Cargados como ejemplos reconocibles: R-4800 (caso 1), P-900 (caso 3), P-101 a P-105 y R-201 (caso 4). La pantalla «Casos de prueba» los recalcula en vivo. |
 | Usuarios y sucursales | Simulados (`USERS`, `BRANCHES`). Se elige con el selector del encabezado; cada evento registra quién lo hizo. |
 | Valores de /admin | Valores de ejemplo: no son normas ni valores reales del regulador. Los valida el contador de la mutual. |
-| Correo, WhatsApp, pagos electrónicos | No se conectan. No hay envíos reales. |
+| Correo y WhatsApp | Simulados. No se envía nada: la pantalla **Enviados (simulado)** (`/enviados`) muestra los mensajes que se mandarían. **Comprobantes**: uno por cada pago registrado (correo), préstamo aprobado o refinanciado (WhatsApp) y depósito constituido o liquidado (correo); si se deshace el cambio, el mensaje desaparece. **Recordatorios**: WhatsApp para cada préstamo vigente con cuota que vence en los próximos 3 días o ya vencida e impaga (mora). Correos y teléfonos son inventados (`asociadoN@ejemplo.com.ar`). Lógica en `src/data/notifications.ts`. |
+| Pagos electrónicos | No existen. Los cobros se registran a mano en «Cobranza» como pago en caja. |
 | Fecha de los datos | La semilla está generada hasta el `SEED_REF` (05/11/2026). La app usa la fecha real del equipo. |
 | Sucursal Villa Cañás | Cupo diario de ejemplo en cero, para mostrar el botón «Aprobar» deshabilitado. |
 
 ## Reiniciar los datos de ejemplo
 
-En **/admin** → «Reiniciar datos de ejemplo». Borra IndexedDB (semilla, instantáneas y eventos) en este navegador, avisa a las otras pestañas y vuelve a generar todo.
+En **/admin** → «Reiniciar datos de ejemplo». (Borrar el localStorage no alcanza: los datos están en IndexedDB.) Borra IndexedDB (semilla, instantáneas y eventos) en este navegador, avisa a las otras pestañas y vuelve a generar todo.
 
 ## Clave del panel /admin
 
@@ -81,4 +82,4 @@ src/components/    Encabezado, navegación, tablas virtualizadas y piezas comune
 
 ## A futuro
 
-KODARVIA integrará el backend, las políticas de acceso y el despliegue. Esta versión guarda todo en el navegador.
+El equipo de desarrollo integrará el backend, las políticas de acceso y el despliegue. Esta versión guarda todo en el navegador.

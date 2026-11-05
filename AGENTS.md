@@ -36,3 +36,4 @@ use the editor.
 - The app renders client-only (`ClientOnly` in `__root.tsx`) because all state comes from IndexedDB.
 - tsconfig drops `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes` and `noPropertyAccessFromIndexSignature`: record-keyed entity maps make them pure noise.
 - `npm test` runs Vitest with an 80 % coverage threshold on `src/engine`; keep the mandatory cases green.
+- Simulated email/WhatsApp messages are derived on the fly from the event log and state (`src/data/notifications.ts`), never stored, so undo and "estado al…" stay consistent.
